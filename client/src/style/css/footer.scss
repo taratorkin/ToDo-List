@@ -1,0 +1,13 @@
+$bgColor: #2d2d2d;
+$textColor: #fff;
+
+#footer {
+  background-color: $bgColor;
+  color: $textColor;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 3em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

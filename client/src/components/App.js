@@ -8,14 +8,13 @@ import Signup from './Signup.js';
 
 const App = () => {
   return(
-    <div className="root-child">
       <BrowserRouter>
         <div className="root-child">
           <Header />
           <Route exact path="/" component={MainPage} />
+          <Footer />
         </div>
       </BrowserRouter>
-    </div>
   );
 
 }

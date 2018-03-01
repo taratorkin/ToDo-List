@@ -43,6 +43,10 @@ $quoteBgColor: #eee;
 }
 
 @media(max-width:992px) {
+  #main-page-wrapper {
+    margin-bottom: 2.5em;
+  }
+
   .main-page-promo img {
     margin: 0.7em auto;
     display: block;
