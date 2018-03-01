@@ -10,7 +10,7 @@ export default class Header extends React.Component {
       <div id="menu-wrapper">
         <div className="container-fluid" id="mobile-menu">
           <div className="row">
-            <div className="col-12 d-flex align-items-center">
+            <div className="col-11 d-flex align-items-center">
               <a className="d-flex align-items-center" href="#"><i className="material-icons">dehaze</i></a>
             </div>
           </div>

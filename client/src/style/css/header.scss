@@ -1,4 +1,7 @@
-$headerFontColor: #edeef0;
+$bgColor: #2d2d2d;
+$textColor: #fff;
+$bgHoverColor: #fff;
+$textHoverColor: #2d2d2d;
 
 body {
   font-family: "Josefin Sans", Arial, sans-serif;
@@ -6,12 +9,12 @@ body {
 }
 
 a {
-  color: #fff;
+  color: $textColor;
 }
 
 a:hover {
-  color: #2d2d2d;
-  background-color: #fff;
+  color: $textHoverColor;
+  background-color: $bgHoverColor;
   text-decoration: none;
 }
 
@@ -36,22 +39,22 @@ li {
 
 #mobile-menu {
   height: 3em;
-  background-color: #2d2d2d;
+  background-color: $bgColor;
 }
 
 #header-menu {
   height: 3em;
-  background-color: #2d2d2d;
+  background-color: $bgColor;
 }
 
 .material-icons {
   font-size: 2em;
-  color: white;
+  color: $textColor;
 }
 
 .material-icons:hover {
-  color: #2d2d2d;
-  background-color: white;
+  color: $textHoverColor;
+  background-color: $bgHoverColor;
 }
 
 .brand-name {
@@ -64,7 +67,7 @@ li {
   }
 
   .navbar a {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $textColor;
   }
 
   .navbar a:last-child {
