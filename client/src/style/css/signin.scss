@@ -1,0 +1,110 @@
+$bgColor: #fff;
+$textColor: #2d2d2d;
+$buttonBorderColor: #a0a0a0;
+
+#signin-page {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: $textColor;
+  margin-bottom: 3.2em;
+
+  input {
+    margin-bottom: 1em;
+  }
+}
+
+.signin-headline {
+  font-size: 26px;
+  margin-top: 1em;
+}
+
+.signin-form-wrapper {
+  margin-top: 2em;
+  text-transform: capitalize;
+}
+
+.input-element {
+  min-width: 150px;
+  max-width: 300px;
+}
+
+.button {
+  width: 40%;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.auth-button {
+  height: 2em;
+  background-color: $textColor;
+  color: $bgColor;
+  border: none;
+}
+
+.auth-button:hover {
+  background-color: #202020;
+  color: $bgColor;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+.restore-link {
+  text-transform: none;
+  margin: 1em 0;
+  a {
+    color: $textColor;
+  }
+
+  a:hover {
+    color: #404040;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+}
+
+#google-auth {
+  height: 3em;
+  background-color: $bgColor;
+  border: 1px solid $buttonBorderColor;
+}
+
+#google-auth:hover {
+  background-color: #eee;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+#passRestore {
+  height: 80%;
+  width: 90%;
+  margin: auto;
+  border: 1px solid $textColor;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: $bgColor;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  i {
+    cursor: pointer;
+    color: $textColor;
+    margin-top: 0.5em;
+    font-size: 3em;
+  }
+  p {
+    margin-top: 0.5em;
+  }
+  input {
+    width: 70%;
+    margin-bottom: 1em;
+  }
+}
+
+#passRestore:target {
+  display: block;
+}
+
+@media(max-width:400px) {
+
+}
