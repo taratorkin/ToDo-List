@@ -10,7 +10,7 @@ export default class Signup extends React.Component {
           <div className="offset-lg-4 offset-sm-3"></div>
           <div className="col-lg-4 col-sm-6 col-12">
             <p className="signup-headline">Create new account</p>
-            <form className="signup-form" action="#">
+            <form className="signup-form" method="post" action="#">
               <label htmlFor="signup-email">email address</label>
               <br/>
               <input className="input-element" type="text" id="signup-email"/>
@@ -27,7 +27,9 @@ export default class Signup extends React.Component {
             </form>
             <hr/>
             <p>or sign up with this service</p>
-            <button className="button signup-google input-element">Google</button>
+            <form action="/google">
+              <button type="submit" className="button signup-google input-element">Google</button>
+            </form>
           </div>
           <div className="offset-lg-4 offset-sm-3"></div>
         </div>
