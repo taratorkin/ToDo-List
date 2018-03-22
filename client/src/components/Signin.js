@@ -11,14 +11,14 @@ export default class Signin extends React.Component {
             <div className="col-lg-4 col-sm-6 col-12">
               <p className="signin-headline">Sign in to your account</p>
               <div className="signin-form-wrapper">
-                <form method="post" action="#">
+                <form method="post" action="/signin/localAuth">
                   <label htmlFor="mail-input">email address</label>
                   <br/>
-                  <input className="input-element" id="mail-input" type="text"/>
+                  <input className="input-element" id="mail-input" type="text" name="email"/>
                   <br/>
                   <label htmlFor="pass-input">password</label>
                   <br/>
-                  <input className="input-element" id="pass-input" type="password"/>
+                  <input className="input-element" id="pass-input" type="password" name="password"/>
                   <br/>
                   <button className="button auth-button input-element" type="submit">submit</button>
                   <br/>

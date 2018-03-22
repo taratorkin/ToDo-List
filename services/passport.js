@@ -1,6 +1,8 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
+const { validPassword, findUser } = require('../models/User.js');
 const keys = require('../config/keys.js');
 
 
@@ -16,6 +18,26 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
+
+passport.use(new LocalStrategy({ usernameField: "email" }, (username, password, done) => {
+    findUser(username, (err, user) => {
+      if (err) throw err;
+      if (!user) {
+        done(null, false, { message: 'Wrong email or password' });
+      } else {
+        validPassword(password, user.password, (err, isMatch) => {
+          if (err) throw err;
+          if (isMatch) {
+            done(null, user);
+          } else {
+            done(null, false, { message: 'Wrong email or password' });
+          }
+        });
+      }
+    });
+
+  })
+);
 
 passport.use(new GoogleStrategy({
   clientID: keys.googleClientID,
@@ -37,6 +59,4 @@ passport.use(new GoogleStrategy({
           });
         }
       });
-
-
 }));

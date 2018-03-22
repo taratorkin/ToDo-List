@@ -8,6 +8,12 @@
     },
     "/logout": {
       "target": "http://localhost:5000"
+    },
+    "/signin/localAuth": {
+      "target": "http://localhost:5000"
+    },
+    "/signup/localAuth": {
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
