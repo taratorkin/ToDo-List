@@ -12,7 +12,11 @@ module.exports = app => {
     scope: ['profile', 'email']
   }))
 
-  app.get('/google/callback', passport.authenticate('google'));
+  app.get('/google/callback',
+  passport.authenticate('google'),
+  (req, res) => {
+    res.redirect('/');
+  });
 
   app.get('/logout', (req, res) => {
     req.logout();

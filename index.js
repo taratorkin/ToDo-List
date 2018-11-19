@@ -9,7 +9,11 @@ const flash = require('connect-flash');
 require('./models/User.js');
 require('./services/passport.js');
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => {
+  console.log('connected successfully');
+}).catch(err => {
+  console.log(err);
+});
 
 const app = express();
 

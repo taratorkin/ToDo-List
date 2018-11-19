@@ -5,21 +5,27 @@ import MainPage from './MainPage.js';
 import Footer from './Footer.js';
 import Signup from './Signup.js';
 import Signin from './Signin.js';
+import { connect } from 'react-redux';
+import * as actions from '../actions/authActions';
 
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
-const App = () => {
-  return(
-      <BrowserRouter>
-        <div className="root-child">
-          <Header />
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/signin" component={Signin} />
-          <Footer />
-        </div>
-      </BrowserRouter>
-  );
-
+  render() {
+    return(
+        <BrowserRouter>
+          <div className="root-child">
+            <Header />
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/signin" component={Signin} />
+            <Footer />
+          </div>
+        </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+export default connect(null, actions)(App);

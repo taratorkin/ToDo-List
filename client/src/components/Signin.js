@@ -29,7 +29,9 @@ export default class Signin extends React.Component {
               </div>
               <hr/>
               <p>or sign in with this service</p>
-              <button className="button input-element" id="google-auth" type="button">google</button>
+              <form action="/google">
+                <button type="submit" className="button signup-google input-element">Google</button>
+              </form>
             </div>
             <div className="offset-lg-4 offset-sm-3"></div>
           </div>
