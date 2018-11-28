@@ -19,6 +19,10 @@ const app = express();
 
 app.use(express.static('/client/public'));
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(validator());
