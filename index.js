@@ -7,7 +7,6 @@ const keys = require('./config/keys.js');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 require('./models/User.js');
-require('./services/passport.js');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => {
   console.log('connected successfully');
@@ -16,8 +15,8 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => {
 });
 
 const app = express();
-
-require('./routes/authRoutes.js')(app);
+console.log(process.env.NODE_ENV);
+require('./services/passport.js');
 
 app.use(express.static('/client/public'));
 
@@ -41,7 +40,8 @@ app.use(
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
   })
-)
+);
+
 app.use(passport.initialize());
 app.use(passport.session());
 

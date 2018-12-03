@@ -12,14 +12,17 @@ class Header extends React.Component {
         return;
       case false:
         return (
-          <React.Fragment>
-          <a className="d-flex align-items-center" href="/signin"><li>Sign in</li></a>
-          <a className="d-flex align-items-center" href="/signup"><li>Sign up</li></a>
-          </React.Fragment>
+          [
+          <a key="1" className="d-flex align-items-center" href="/signin"><li>Sign in</li></a>,
+          <a key="2" className="d-flex align-items-center" href="/signup"><li>Sign up</li></a>
+        ]
         );
       default:
         return (
-          <a className="d-flex align-items-center" href="/logout"><li>Log out</li></a>
+          [
+          <a key="1" className="d-flex align-items-center" href="/my-lists"><li>My lists</li></a>,
+          <a key="2" className="d-flex align-items-center" href="/logout"><li>Log out</li></a>
+        ]
         );
     }
   }
