@@ -1,0 +1,51 @@
+$createColor: #00b945;
+$deleteButton: #ff2c00;
+$finishedList: #282828;
+
+#my-lists {
+  margin: 1em;
+}
+
+.customButton {
+  color: white;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 3px rgba(0, 0, 0, .25),
+  inset 0 2px 0 0 rgba(0, 87, 32, .6);
+  width: 4em;
+  height: 4em;
+  margin: 1.5em;
+}
+
+.customButton:hover {
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, .20),
+  inset 0 0 4px 2px rgba(0, 87, 32, .7);
+}
+
+.createButton {
+  background-color: $createColor;
+}
+
+.deleteButton {
+  background-color: $deleteButton;
+}
+
+.customTextField {
+  border: 8px solid $createColor;
+  padding: 0.5em;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, .15),
+  inset 0 2px 0 0 rgba(0, 87, 32, .6);
+}
+
+.editField {
+  margin: 5px;
+  padding: 1em;
+  height: 8em;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: $finishedList;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  resize: none;
+}

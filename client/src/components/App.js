@@ -5,8 +5,9 @@ import MainPage from './MainPage.js';
 import Footer from './Footer.js';
 import Signup from './Signup.js';
 import Signin from './Signin.js';
+import MyLists from './MyLists.js';
 import { connect } from 'react-redux';
-import * as actions from '../actions/authActions';
+import * as actions from '../actions/authActions.js';
 
 class App extends React.Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <Route exact path="/" component={MainPage} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
+            <Route path="/my-lists" component={MyLists} />
             <Footer />
           </div>
         </BrowserRouter>
