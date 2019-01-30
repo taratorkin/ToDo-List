@@ -6,9 +6,8 @@ import '../style/css/mylists.min.css';
 
 class MyLists extends React.Component {
 
-  constructor(props) {
-    super(props);
-
+  componentWillMount() {
+    this.props.fetchLists();
   }
 
   openCreateListWindow() {
@@ -66,9 +65,7 @@ class MyLists extends React.Component {
   }
 
   renderExistingLists() {
-
-    let userLists = [{ text: 'Hello' }, { text: 'asdfasdfasdfasdfasdf asdfasdfasdfasdfasdfasdfasdf sdfasdfasfsdfhgdssghsdhrhgs lasjkdhfasdlfnasd alskjdhfalksjdbfalksdf asldkjfhaslkdfjhaklsd aslkdjhfasdkljfh lsakdjhfasjlkdhal asldjfkhaskldjfh asldkjfhasdkjlfh'}, { text: 'asdfadg;jh'}, { text: 'lolkk'},
-    { text: 'dlkahdf'}];
+    let userLists = this.props.lists.listsArray;
 
     if (typeof userLists === 'undefined') {
       return (<p>Loading lists</p>)
@@ -76,8 +73,8 @@ class MyLists extends React.Component {
       return (<p>You don't have any lists yet</p>)
     } else {
       const listItems = userLists.map((item, ind) => (
-         <textarea key={ind} className="editField d-flex col-10 offset-1 col-md-3" onClick={(event) => {this.props.changeMode(event, 'edit')}}
-           onBlur={(event) => {this.props.changeMode(event, 'read')}} value={item.text}></textarea>)
+         <textarea key={item._id} className="editField d-flex col-10 offset-1 col-md-3" onClick={(event) => {this.props.changeMode(event, 'edit')}}
+           onBlur={(event, id) => {this.props.updateList(event, item._id)}} defaultValue={item.text}></textarea>)
        );
 
       return(

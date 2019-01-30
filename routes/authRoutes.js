@@ -2,6 +2,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const keys = require('../config/keys.js');
 const { createUser } = require('../models/User.js');
+const UniqueId = require('uuid/v4');
 
 
 const User = mongoose.model('users');
@@ -25,6 +26,30 @@ module.exports = app => {
 
   app.get('/api/currentUser', (req, res) => {
     res.send(req.user);
+  });
+
+  app.post('/api/addList', (req, res) => {
+    let arr = [...req.user.lists];
+    arr.push({ id: UniqueId(), text: req.body.text });
+    User.findOneAndUpdate({ _id: req.user._id }, { lists: arr }, { new: true } ).then(result => {
+      res.send(result);
+    }, err => {
+      console.log(err)
+    });
+  });
+
+  app.post('/api/updateList', (req, res) => {
+    User.findOneAndUpdate({ 'lists._id': req.body.id }, { 'lists.$.text': req.body.payload }, { new: true }).then(result => {
+      res.send(result);
+    }, err => {
+      console.log(err);
+    });
+  });
+
+  app.get('/api/fetchLists', (req, res) => {
+    User.findOne({ _id: req.user._id }).then(result => {
+      res.send(result);
+    });
   });
 
   app.post('/signup/localAuth', (req, res) => {
