@@ -18,7 +18,7 @@ const app = express();
 console.log(process.env.NODE_ENV);
 require('./services/passport.js');
 
-app.use(express.static('/client/public'));
+require('./routes/authRoutes.js')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
@@ -45,8 +45,6 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-require('./routes/authRoutes.js')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

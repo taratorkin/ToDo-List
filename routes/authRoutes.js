@@ -25,7 +25,7 @@ module.exports = app => {
   });
 
   app.get('/api/currentUser', (req, res) => {
-    res.send(req.user);
+    res.send({userLogged: !!(req.user)});
   });
 
   app.post('/api/addList', (req, res) => {
@@ -75,7 +75,6 @@ module.exports = app => {
       });
       createUser(newUser, (err, user) => {
         if (err) throw err;
-        console.log(user);
       }).then(result => {
         console.log(result);
         res.redirect('/signin');

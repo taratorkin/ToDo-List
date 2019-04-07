@@ -42,8 +42,8 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (username, password, 
 passport.use(new GoogleStrategy({
   clientID: keys.googleClientID,
   clientSecret: keys.googleClientSecret,
-  callbackURL: '/google/callback',
-  proxy: true
+  callbackURL: 'https://vast-journey-21746.herokuapp.com/google/callback'
+
 }, (accessToken, refreshToken, profile, done) => {
       User.findOne({
         googleID: profile.id
