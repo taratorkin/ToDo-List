@@ -13,10 +13,10 @@ module.exports = app => {
     scope: ['profile', 'email']
   }))
 
-  app.get('/google/callback',
-  passport.authenticate('google'),
-  (req, res) => {
-    res.redirect('/');
+  app.get('/google/callback', (req, res) => {
+    passport.authenticate('google', () => {
+      res.redirect('/');
+    });
   });
 
   app.get('/logout', (req, res) => {
