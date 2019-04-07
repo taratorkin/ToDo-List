@@ -13,10 +13,14 @@ module.exports = app => {
     scope: ['profile', 'email']
   }))
 
-  app.get('/google/callback', (req, res) => {
-    passport.authenticate('google', () => {
+  app.get('/google/callback', (req, res, next) => {
+    passport.authenticate('google', (err, user, info) => {
+      if (err) {console.log(err)};
+      req.login(user, (err) => {
+        if (err) {console.log(err)};
+      });
       res.redirect('/');
-    });
+    })(req, res, next);
   });
 
   app.get('/logout', (req, res) => {
