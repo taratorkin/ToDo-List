@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import img1 from '../style/imgs/hamburger-icon.png';
 import '../style/css/header.min.css';
 import { connect } from 'react-redux';
@@ -14,15 +15,15 @@ class Header extends React.Component {
       case false:
         return (
           [
-          <a key="1" className="d-flex align-items-center" href="/signin"><li>Sign in</li></a>,
-          <a key="2" className="d-flex align-items-center" href="/signup"><li>Sign up</li></a>
+          <Link key="1" className="d-flex align-items-center" to="/signin"><li>Sign in</li></Link>,
+          <Link key="2" className="d-flex align-items-center" to="/signup"><li>Sign up</li></Link>
         ]
         );
       default:
         return (
           [
-          <a key="1" className="d-flex align-items-center" href="/my-lists"><li>My lists</li></a>,
-          <a key="2" className="d-flex align-items-center" href="/logout"><li>Log out</li></a>
+          <Link key="1" className="d-flex align-items-center" to="/my-lists"><li>My lists</li></Link>,
+          <Link key="2" className="d-flex align-items-center" to="/logout"><li>Log out</li></Link>
         ]
         );
     }
@@ -34,7 +35,7 @@ class Header extends React.Component {
       <div className="container-fluid" id="mobile-menu">
         <div className="row">
           <div className="col-11 d-flex align-items-center">
-            <a className="d-flex align-items-center" href="#"><i className="material-icons">dehaze</i></a>
+            <Link className="d-flex align-items-center" to="#"><i className="material-icons">dehaze</i></Link>
           </div>
         </div>
       </div>
@@ -43,7 +44,7 @@ class Header extends React.Component {
         <div className="row">
           <div className="col d-flex align-items-center">
             <ul className="navbar d-flex">
-              <a className="d-flex align-items-center" href="/"><li className="brand-name">todo List</li></a>
+              <Link className="d-flex align-items-center" to="/"><li className="brand-name">todo List</li></Link>
               {this.renderContext()}
             </ul>
           </div>
